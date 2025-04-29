@@ -57,9 +57,12 @@ JavaScript is a versatile scripting language primarily used for web development.
 
 - **Purpose**: Used to add interactivity and dynamic effects to web pages.
 - **File Extension**: `.js`
-- **Usage**: Initially designed for client-side development, but now also used in server-side development.
+- **Usage**: Initially designed for client-side development, but now also used in server-side development.  
+             ( _Client-side development_: Handles what users see and interact with in the browser using HTML, CSS, and JavaScript.  
+             _Server-side development_: Manages backend logic, databases, authentication, and serves data to the frontend via APIs. )
 - **Typing**: Dynamically typed (no need to specify data types).
-- **Concurrency Model**: Asynchronous single-threaded language.
+- **Concurrency Model**: Asynchronous single-threaded language.    
+ (JavaScript is synchronous and single-threaded by default, meaning it executes code sequentially, one line at a time. However, it can handle asynchronous operations using mechanisms like callbacks, Promises, and async/await)
 
 ### Frameworks and Libraries
 
