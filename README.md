@@ -63,6 +63,7 @@ JavaScript is a versatile scripting language primarily used for web development.
 - **Typing**: Dynamically typed (no need to specify data types).
 - **Concurrency Model**: Asynchronous single-threaded language.    
  (JavaScript is synchronous and single-threaded by default, meaning it executes code sequentially, one line at a time. However, it can handle asynchronous operations using mechanisms like callbacks, Promises, and async/await)
+- its a loosly typed language as data types for variables arent strictly declared 
 
 ### Frameworks and Libraries
 
@@ -158,8 +159,12 @@ When the JS engine scans code, it creates an environment called the Execution Co
 
 ## Types of Execution Context
 
-1. **Global EC**: Created when JS code first starts to run and represents the global scope in JS.
+1. **Global EC**: Created when JS code first starts to run and represents the global scope in JS. 
 2. **Function EC**: Created when a function in the code starts executing.
+
+ - window in console(browser) is a global object created along during global execution context , and with this a this variable is also created
+ - this===window   =>true
+ - anything which is not inside a function is in global space 
 
 ## Execution Phases
 
@@ -193,7 +198,8 @@ We will explore more about scopes and how the JS engine works internally in late
 - JavaScript Execution Process
 - Basic knowledge of Scope
 
-Hoisting is a behavior in JavaScript where all declarations of a function, variable, or class go to the top of the scope they are defined in.
+Hoisting is a behavior in JavaScript where all declarations of a function, variable, or class go to the top of the scope they are defined in.  
+Its a phenomena in js by which one can access variables and functions even before we have initialised it . can access without error.  
 
 This whole process is done during the Memory Creation Phase. 
 Let's see what actually happens with:
@@ -203,7 +209,9 @@ Let's see what actually happens with:
 - **`let` and `const`**: Hoisted but inaccessible before default initialization. [Gives Error when accessed before initialization]
 
 ### Functions
-Functions become accessible even before the line they are declared. Hoisting does not occur in function expressions, it occurs only in function declarations.
+Functions become accessible even before the line they are declared. Hoisting does not occur in function expressions, it occurs only in function declarations.  
+If arrow function , (treating/behave as variable ),  The function definition is not accessible in hoisting unlike other functions . it will show the function as undefined, and hence the arrow function can't be accessed before its declaration line . 
+
 
 ### Point to Note
 - Hoisting happens based on the scope. It sets variables and functions to the top of the scope.
@@ -259,6 +267,11 @@ We can also have named function expressions like this:
 const print = function x() {
   // function body
 };
+const abc= function x(){
+    console.log("hello");
+}
+// const abc= function x2(){         // not allowed like this 
+// }
 ```
 But here `x` is not accessible.
 
@@ -291,6 +304,7 @@ So, JavaScript functions are first class 🔥
 
 ## Undefined
 - Predefined global variable that represents the value assigned to a variable during the memory creation phase.
+- like a placeholder for a variable 
 
 ## Not defined
 - Means the variable has not been declared at all. Accessing such a variable results in a reference error.
