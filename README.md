@@ -137,8 +137,12 @@ In JavaScript we can classify data types in two types
 - limitations: it is function scoped not block scoped
 
 Means - variables are accessible within entire function in which they are declared, rather than just within the block of code they appear
-
-
+- var can be redeclared but let can and const cant
+  ```
+  var a= 10;
+  var a=100;
+  let b=10;
+  let b=20 ; // not allowed 
 **let**
 - introduced in es6
 - block scoped
@@ -218,6 +222,12 @@ If arrow function , (treating/behave as variable ),  The function definition is 
 
 ### Related Topic: Temporal Dead Zone
 - Area where variables are hoisted but inaccessible until they are initialized with a value. [Applies to `let` and `const`, not to `var`]
+- "Does memory not allocated before for let like for var?"  
+Memory is allocated during the compile phase for let (not attached to global like var though, separate memory space(chk scope) ) , but initialization is deferred.  
+Until the line where let a = 10; is reached, the variable is in the Temporal Dead Zone and cannot be accessed.  
+(will give reference error)
+
+- to avoid temporal dead zone , try to declare variables at the top of scope only 
 
 
 ## From where I learned Hoisting?
@@ -325,7 +335,8 @@ This post is content-heavy.
 - Area where an item (variable or function) is visible and accessible to other code.
 
 ## Lexical Scope (Static Scope)
-- A place where all the variables and functions of a parent lie. This scope is passed to the children scope (nested scope).
+- A place where all the variables and functions of a parent lie. This scope is passed to the children scope (nested scope).  
+- lexical environment= local memory+ lexical env of parent. (lexical means in heirarchy)   
 
 Consider this code and call stack:
 
